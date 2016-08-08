@@ -1,0 +1,78 @@
+<table>
+    <thead>
+        <th>
+            Complete!
+        </th>
+        <th>
+            Tagged User
+        </th>
+        <th>
+            Event Title
+        </th>
+        <th>
+            Event Description
+        </th>
+        <th>
+            Created At
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in vm.events._events" ng-show="!event.complete">
+            <td>
+                <input type="radio" ng-click="vm.onComplete(event)">
+            </td>
+            <td>
+                {{event._user.name}}
+            </td>
+            <td>
+                {{event.title}}
+            </td>
+            <td>
+                {{event.description}}
+            </td>
+            <td>
+                {{event.created_at | date : "mediumDate"}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Complete Events!</h2>
+<table>
+    <thead>
+        <th>
+            Complete!
+        </th>
+        <th>
+            Tagged User
+        </th>
+        <th>
+            Event Title
+        </th>
+        <th>
+            Event Description
+        </th>
+        <th>
+            Created At
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in vm.events._events" ng-show="event.complete">
+            <td>
+                <input type="radio" ng-click="vm.onComplete(event)">
+            </td>
+            <td>
+                {{event._user.name}}
+            </td>
+            <td>
+                {{event.title}}
+            </td>
+            <td>
+                {{event.description}}
+            </td>
+            <td>
+                {{event.created_at | date : "mediumDate"}}
+            </td>
+        </tr>
+    </tbody>
+</table>

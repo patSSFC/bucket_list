@@ -1,0 +1,56 @@
+<h2>make a new bucket list item!!</h2>
+<p>
+    {{vm.user.username}} (<a href="#/login">Logout</a>)
+</p>
+
+<fieldset>
+    <input type="text" placeholder="title" ng-model="formData.title">
+    <textarea name="name" rows="8" cols="40" placeholder="description" ng-model="formData.description"></textarea>
+    <select ng-options="user.name for user in vm.users" ng-model="formData.taggedUser"></select>
+    <!-- <input type="hidden" ng-model="formData.currentUser" ng-value="vm.user.username"> -->
+    <button ng-click="vm.onAddEvent()" type="button" name="button">Add to list</button>
+</fieldset>
+
+<table>
+    <thead>
+        <th>
+            Complete!
+        </th>
+        <th>
+            Tagged User
+        </th>
+        <th>
+            Event Title
+        </th>
+        <th>
+            Event Description
+        </th>
+        <th>
+            Created At
+        </th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in vm.events._events" ng-show="!event.complete">
+            <td>
+                <input type="radio" ng-click="vm.onComplete(event)">
+            </td>
+            <td>
+                {{event._user.name}}
+            </td>
+            <td>
+                {{event.title}}
+            </td>
+            <td>
+                {{event.description}}
+            </td>
+            <td>
+                {{event.created_at | date : "mediumDate"}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>List of other users:</h2>
+<ul>
+    <li ng-repeat="user in vm.users"><a href="#/profile/{{user._id}}">{{user.name}}</a></li>
+</ul>
