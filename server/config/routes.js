@@ -1,5 +1,5 @@
-var user = require('../controllers/UserController.js');
-var event = require('../controllers/EventController.js');
+var user = require('../controllers/userController.js');
+var event = require('../controllers/eventController.js');
 
 module.exports = function(app) {
     app.post('/user', function(req, res) {
