@@ -18,6 +18,6 @@ bucketList.config(function($routeProvider) {
             controllerAs: 'vm'
         })
         .otherwise({
-            redirectTo: '/dashboard'
+            redirectTo: '/login'
         })
 });
